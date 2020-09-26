@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .models import Queue,Logdata_get,Logdata_put
-from .serializers import QueueSerializer
+from .models import Queue,Logdata_put
+from .serializers import QueueSerializer,Logdata_putSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
@@ -24,3 +24,9 @@ def queue_length_update(request):
 		serializer.save()
 	return Response(serializer.data)
 
+@api_view(['GET'])
+def all_updates(request):
+	allupdates=Logdata_put.objects.all()
+	serializer=Logdata_putSerializer(allupdates,many=True)
+	return Response(serializer.data)
+	
