@@ -23,7 +23,7 @@ def queue_length_update(request):
 	serializer=QueueSerializer(instance=queue,data=request.data)
 	if serializer.is_valid():
 		serializer.save()
-		return Response(status.HTTP_201_CREATED)
+		return Response(status.HTTP_202_ACCEPTED)
 	else:
 		return Response(status.HTTP_400_BAD_REQUEST)
 
