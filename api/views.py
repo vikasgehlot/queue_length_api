@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Queue,Logdata_put
+from .models import Queue,Logdata_put,Logdata_get
 from .serializers import QueueSerializer,Logdata_putSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
